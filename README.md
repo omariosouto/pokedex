@@ -8,7 +8,7 @@
 > Quer ver como ta ficando? Acessa a [**DEMO**](https://pokedex.omariosouto.now.sh/)
 
 <p align="center">
-  <img alt="Logo do projeto" src="./_docs/logo.png" />
+  <img alt="Logo do projeto" src="./docs/logo.png" />
 </p>
 
 ## Contributing/Contribuir
