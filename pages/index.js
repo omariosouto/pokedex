@@ -1,22 +1,22 @@
 import React from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const pokemons = await fetch('https://pokeapi.co/api/v2/pokedex/2/')
-      .then((respostaDoServer) => {
-        if(respostaDoServer.ok) {
-          return respostaDoServer.json();
-        }
-      })
-      .then((respostaEmObjeto) => {
-        return respostaEmObjeto.pokemon_entries;
-      })
+    .then((respostaDoServer) => {
+      if (respostaDoServer.ok) {
+        return respostaDoServer.json();
+      }
+
+      throw new Error('Deu problema');
+    })
+    .then((respostaEmObjeto) => respostaEmObjeto.pokemon_entries);
 
   return {
     props: {
-      pokemons
+      pokemons,
     },
-  }
+  };
 }
 
 export default function Home(props) {
@@ -26,18 +26,18 @@ export default function Home(props) {
     <div>
       Pokédex - DevSoutinho - Da um like :)
       <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/sobre">
-          <a>Sobre o projeto</a>
-        </Link>
-      </li>
-    </ul>
-    
+        <li>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/sobre">
+            <a>Sobre o projeto</a>
+          </Link>
+        </li>
+      </ul>
+
       <ul>
         {pokemons.map((pokemon) => (
           <li key={pokemon.entry_number}>
@@ -47,4 +47,4 @@ export default function Home(props) {
       </ul>
     </div>
   );
-} 
+}

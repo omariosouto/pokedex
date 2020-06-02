@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build && next export && vercel --prod",
     "start": "next start"
-  },  
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,5 +15,13 @@
     "next": "^9.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^2.5.1"
   }
 }
