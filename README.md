@@ -1,7 +1,7 @@
 # Pokedex: Dev Soutinho 
 
 [![Série](https://img.shields.io/badge/DevSoutinho-Pokedex-orange)](https://www.youtube.com/watch?v=jOAU81jdi-c&list=PLTcmLKdIkOWmeNferJ292VYKBXydGeDej)
-[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/afonsopacifer/open-source-boilerplate/blob/master/LICENSE.md)
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/omariosouto/pokedex/blob/master/LICENSE)
 
 > Projeto da a [série de vídeos no YouTube no canal DevSoutinho](https://www.youtube.com/watch?v=c8mVlakBESE&list=PLTcmLKdIkOWlpvlk5vHaCxwlobqLvcPq6) ensinando a fazer uma Pokédex com dicas importantes de Performance e SEO com React
 > 
