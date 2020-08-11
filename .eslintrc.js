@@ -22,6 +22,9 @@ module.exports = {
     "react"
   ],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+     "linebreak-style": 0,
+     "jsx-a11y/anchor-is-valid": 0
+     
   }
 };
