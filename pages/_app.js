@@ -32,12 +32,11 @@ export const Container = styled.div`
 export const Card = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 14.4%;
+  width: 15.67%;
   border-radius: 5px;
   background-color: #2a74ba;
   display: inline-grid;
-  margin: 1%;
-  transition: width 0.3s;
+  margin: 0.5%;
   cursor: pointer;
   align-items: center;
 
@@ -46,11 +45,11 @@ export const Card = styled.div`
   transform: translateY(-5%);
 }
   @media (max-width: 1000px){
-    width: 23%;
+    width: 24%;
   }
 
   @media (max-width: 800px){
-    width: 48%;
+    width: 49%;
   }
 `;
 export const CardDescription = styled.div`
