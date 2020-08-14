@@ -1,45 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
-
-const Card = styled.div`
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-  max-width: 200px;
-  border-radius: 5px;
-  background-color: #2a74ba;
-  display: inline-block;
-  margin: 1%;
-
-  :hover {
-  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.4);
-  
-}
-`;
-const Container = styled.div`
-  background-color: rgba(0,0,0,0.3);
-  border-radius: 0px 0px 5px 5px;
-  text-align-last: center;
-`;
-
-const Image = styled.img`
-  width: 100%;
-`;
-
-const Type = styled.div`
-  background-color: #fff;
-  border-radius: 15px;
-  width: 40%;
-  display: inline-block;
-  margin: 0% 5% 5% 5%;
-`;
-
-const Name = styled.h4`
-  color: white;
-  margin: 0% 0% 3% 0%;
-  padding-top: 2%;
-`;
+import {
+  Container, Card, CardName, CardDescription, CardType, CardImage,
+} from './_app';
 
 export async function getPokemons() {
   const pokemons = await fetch('https://pokeapi.co/api/v2/pokedex/2/')
@@ -83,8 +46,10 @@ export default function Home(props) {
 
   return (
     <div>
-      Pokédex - DevSoutinho - Da um like :) <br />
-      >Branch  - octaviolage
+      Pokédex - DevSoutinho - Da um like :)
+      {' '}
+      <br />
+      Branch  - octaviolage
       <ul>
         <li>
           <Link href="/">
@@ -97,20 +62,23 @@ export default function Home(props) {
           </Link>
         </li>
       </ul>
-
+      <Container>
         {pokedex.map((pokemon) => (
-            <Link href={`/pokemon/${pokemon.id}`}>
-              <Card>
-                <Image src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
-                <Container className="container">
-                  <Name>{`#${pokemon.id} ${pokemon.name.slice(0, 1).toUpperCase()}${pokemon.name.slice(1)}`}</Name>
+          <Link href={`/pokemon/${pokemon.id}`}>
+            <a>
+              <Card key={pokemon.id + pokemon.name}>
+                <CardImage src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
+                <CardDescription className="container">
+                  <CardName>{`#${pokemon.id} ${pokemon.name.slice(0, 1).toUpperCase()}${pokemon.name.slice(1)}`}</CardName>
                   {pokemon.types.map((types) => (
-                    <Type>{types.type.name}</Type>
+                    <CardType type={types.type} />
                   ))}
-                </Container>
+                </CardDescription>
               </Card>
-            </Link>
+            </a>
+          </Link>
         ))}
+      </Container>
     </div>
   );
 }

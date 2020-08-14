@@ -1,0 +1,36 @@
+html,
+body {
+margin: 0;
+padding: 0;
+background-color: #292929;
+color: white;
+}
+
+a {
+  color: inherit;
+  }
+
+  #root {
+    min-height: calc(100vh - var(--bodyPaddingTop));
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #222; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4E5157 
+  }

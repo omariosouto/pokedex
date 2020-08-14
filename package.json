@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "braces": "^3.0.2",
+    "globally": "^0.0.0",
     "next": "^9.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
