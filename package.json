@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export && vercel --prod",
+    "build": "next build && next export",
     "start": "next start"
   },
   "keywords": [],
