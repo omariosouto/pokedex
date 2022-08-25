@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 export default function Pokemon({ pokemon }) {
   return (
@@ -7,7 +8,10 @@ export default function Pokemon({ pokemon }) {
       <h1>
         {pokemon.name}
       </h1>
-      <img src={pokemon.sprites.front_default} alt="Imagem de um pokémon" />
+      <img src={pokemon.sprites.front_default} alt={`Imagem do pokémon ${pokemon.name}`} />
+      <Link href="/">
+        <a>Escolher outro Pokémon</a>
+      </Link>
     </div>
   );
 }
@@ -39,25 +43,29 @@ export async function getStaticProps({ params }) {
   };
 }
 
+async function getPokemons() {
+  try {
+    const request = await fetch('https://pokeapi.co/api/v2/pokedex/2/')
+    const response = await request.json()
+    const pokemons = await response.pokemon_entries
+    return pokemons
+  }
+  catch(error) {
+    console.log(error)
+  }
+}
+
 export async function getStaticPaths() {
+  let pokemons = await getPokemons()
+  const paths = pokemons.map((pokemon) => {
+    return {
+      params: {
+        id: `${pokemon.entry_number}`
+      }
+    }
+  })
   return {
-    paths: [
-      {
-        params: {
-          id: '1',
-        },
-      },
-      {
-        params: {
-          id: '2',
-        },
-      },
-      {
-        params: {
-          id: '3',
-        },
-      },
-    ],
+    paths,
     fallback: false,
   };
 }
