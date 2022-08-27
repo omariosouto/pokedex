@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-
+import { TextField } from '../../src/components/TextField';
 
 export default function Pokemon({ pokemon }) {
   return (
@@ -98,32 +98,18 @@ export default function Pokemon({ pokemon }) {
               borderRadius: '9px',
               border: '2px solid #dedede'
             }}>
-                <div style={{
-                  display: 'flex', alignItems: 'center', gap: '5px',
-                  marginBottom: '32px'
-                }}>
-                    <p style={{
-                      color: '#98a609',
-                      fontWeight: 'bold',
-                      fontSize: '18px'
-                    }}
-                    >
-                      NOME:
-                    </p>
-                    <p style={{
-                      color: '#2fb7fe',
-                      textTransform: 'uppercase',
-                      fontWeight: 'bold'
-                    }}
-                    >
-                      {pokemon.name}
-                    </p>
-                </div>
+                <TextField value={pokemon.name} type='NOME' />
+                <TextField
+                 value={pokemon.abilities.map((abilitie) => {
+                  return ` ${abilitie.ability.name}.`
+                 })}
+                 type='SKILLS'
+                />
                 <div style={{
                   display: 'flex', justifyContent: 'center'
                 }}
                 >
-                  <Link className="button" href="/">
+                  <Link href="/">
                     <a style={{
                       padding: '12px',
                       fontSize: '16px',
@@ -176,6 +162,7 @@ async function getPokemons() {
     const request = await fetch('https://pokeapi.co/api/v2/pokedex/2/')
     const response = await request.json()
     const pokemons = await response.pokemon_entries
+    console.log(pokemons)
     return pokemons
   }
   catch(error) {
@@ -185,6 +172,7 @@ async function getPokemons() {
 
 export async function getStaticPaths() {
   let pokemons = await getPokemons()
+  console.log(pokemons)
   const paths = pokemons.map((pokemon) => {
     return {
       params: {
