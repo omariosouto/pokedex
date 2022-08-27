@@ -63,7 +63,8 @@ export default function Pokemon({ pokemon }) {
                       width: '47.5%',
                       height: '47.5%'
                     }}
-                    src={pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']} alt="" 
+                    src={pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']}
+                    alt={`Gif animado do pokemon ${pokemon.name}`}
                     />
                 </div>
             </div>
