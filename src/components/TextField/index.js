@@ -3,13 +3,13 @@ import React from "react";
 export function TextField({ value, type }) {
   return (
     <div style={{
-      display: 'flex', alignItems: 'center', gap: '5px',
-      marginBottom: '26px'
+      display: 'flex', alignItems: 'flex-start', gap: '5px',
+      marginBottom: '16px'
     }}>
         <p style={{
           color: '#98a609',
           fontWeight: 'bold',
-          fontSize: '18px'
+          fontSize: '16px'
         }}
         >
           {type}:
@@ -17,7 +17,8 @@ export function TextField({ value, type }) {
         <p style={{
           color: '#2fb7fe',
           textTransform: 'uppercase',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          fontSize: '16px'
         }}
         >
           {value}

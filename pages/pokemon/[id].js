@@ -17,7 +17,7 @@ export default function Pokemon({ pokemon }) {
           height: '600px',
           backgroundColor: '#dd092d',
           borderRadius: '9px',
-          border: '2x solid #3d040d'
+          border: '2px solid #3d040d'
         }}>
              <div style={{
               display: 'flex', alignItems: 'flex-start',
@@ -46,7 +46,7 @@ export default function Pokemon({ pokemon }) {
               height: '250px',
               backgroundColor: '#dedede',
               margin: '30px auto',
-              borderRadius: '11px 11px 11px 55px',
+              borderRadius: '11px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               border: '2px solid #3d040d'
             }}>
@@ -76,31 +76,38 @@ export default function Pokemon({ pokemon }) {
               borderRadius: '9px',
               border: '2px solid #dedede'
             }}>
-                <TextField value={pokemon.name} type='NOME' />
+                <TextField value={pokemon.name} type='NAME' />
+                <TextField
+                 value={pokemon.types.map((type) => {
+                  return ` ${type.type.name}.`
+                 })}
+                 type='TYPE'
+                />
                 <TextField
                  value={pokemon.abilities.map((abilitie) => {
                   return ` ${abilitie.ability.name}.`
                  })}
                  type='SKILLS'
                 />
-                <div style={{
-                  display: 'flex', justifyContent: 'center'
+            </div>
+            <div style={{
+              display: 'flex', justifyContent: 'center'
+            }}
+            >
+              <Link href="/">
+                <a style={{
+                  padding: '12px',
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  backgroundColor: '#2fb7fe',
+                  color: 'FEFEFE',
+                  borderRadius: '9px',
+                  marginTop: '10px'
                 }}
-                >
-                  <Link href="/">
-                    <a style={{
-                      padding: '12px',
-                      fontSize: '16px',
-                      fontWeight: 'bold',
-                      backgroundColor: '#2fb7fe',
-                      color: 'FEFEFE',
-                      borderRadius: '9px'
-                    }}
-                    >
-                      Escolher outro Pokémon
-                    </a>
-                  </Link>
-                </div>
+                > 
+                  Escolher outro Pokémon
+                </a>
+              </Link>
             </div>
         </div>
       </main>
