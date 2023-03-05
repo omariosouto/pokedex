@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { BounceLoader } from 'react-spinners';
 import { TextField } from '../../src/components/TextField';
 import { Ball } from '../../src/components/Ball';
 
@@ -10,9 +12,18 @@ export default function Pokemon({ pokemon }) {
 
   if (isFallback) {
     return (
-      <h1>Loading</h1>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+      }}
+      >
+        <BounceLoader color="#DD3333" loading={isFallback} />
+      </div>
     );
   }
+
   return (
     <div>
       <main style={{
